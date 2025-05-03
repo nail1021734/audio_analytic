@@ -44,8 +44,8 @@ class _HomePageState extends State<HomePage> {
     await audioProcessor.startStreamingDecode(audio_filePath!);
     print("🎵 音訊檔案讀取完成，檔案大小：${audioProcessor.pcmBytes!.lengthInBytes} bytes");
     await audioProcessor.computeStftChunked(
-      windowSize: 1024,
-      overlapRatio: 0.5,
+      windowSize: 8192,
+      overlapRatio: 0.25,
     );
     print("🎵 STFT 計算完成，共 ${audioProcessor.stftResult.length} 幀");
     // await audioProcessor.computeStft(
